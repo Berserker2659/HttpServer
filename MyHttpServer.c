@@ -1,5 +1,13 @@
-#include <cstdint>
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <netdb.h>
 
 
 //in this structure the sa_family will be the AF_inet(IPv4) or AF_inet(IPv6)
@@ -11,7 +19,7 @@ struct sockaddr{
 //This structure is only for ipv4, this is basically a replacement for the above struct
 // but since it is annoying to have to set sa_Data[14] this will give a much more refined
 //control it is the same size as the sockaddr structure.
-struct sockaddr_ini{
+struct sockaddr_in{
     short int sin_family;
     unsigned short int sin_port;
     struct in_addr sin_addr;
